@@ -1,1 +1,70 @@
-aaaaaaaaaaaaaaaa
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	
+<body>
+	<div id="app">
+		<!-- <p>{{ count }}</p> -->
+		<!--<p><img v-bind:src="filename" width=300></img></p>-->
+		<p>
+			<table>
+			<tr>
+				<td>
+				<button v-on:click="countDown">←</button>
+				</td>
+				<td>
+				<img v-bind:src="filename" width=700></img>
+				</td>
+				<td>
+				<button v-on:click="countUp">→</button>
+				</td>
+				</tr>
+			</table>
+		</p>
+
+		<!--<button v-on:click="countDown">←</button>			
+		<button v-on:click="countUp">→</button>-->
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				count:1,
+				filename: "./slide/1.jpg"
+			},
+			methods: {
+				countDown: function() {
+					if (this.count > 1) {
+						this.count--;
+						this.filename = "./slide/" +
+						this.count +　".jpg";
+					}
+				},
+
+				countUp: function() {
+					if (this.count < 8) {
+						this.count++;
+						this.filename = "./slide/" +
+						this.count +　".jpg";
+					}
+				},
+
+				firstSlide: function() {
+					this.count = 1;
+					this.filename = "./slide/" +
+					this.count +　".jpg";
+				}
+			}
+		})
+	</script>
+</body>
+
+
+</html>
